@@ -1,0 +1,65 @@
+<div class="full-size-screen" style="background-image: url('./assets/img/login-image.jpg');background-position: center">
+  <div class="nav">
+    <div class="container custom-background">
+      <div class="row">
+        <div class="col-md-3 cold-sm-3 col-lg-3">
+          <button class="btn btn-outline-neutral" (click)="showRechercheNom()">Recherche Par Nom</button>
+        </div>
+        <div class="col-md-3 cold-sm-3 col-lg-3">
+          <button class="btn btn-outline-neutral" (click)="showRechercheCuisinier()">Recherche Par Cuisinier</button>
+        </div>
+        <div class="col-md-3 cold-sm-3 col-lg-3">
+          <button class="btn btn-outline-neutral" (click)="showRechercheIngredient()">Recherche Par Ingredient</button>
+        </div>
+        <div class="col-md-3 cold-sm-3 col-lg-3">
+          <button class="btn btn-outline-neutral" (click)="findAll()">Toutes les recettes</button>
+        </div>
+      </div>
+        <div class="row mt-3" *ngIf="rechercheNom">
+          <div class="col-md-2 col-sm-2 col-lg-2 ">
+            <label class="text-white font-weight-bold">Nom de la recette: </label>
+          </div>
+          <div class="col-md-8 col-sm-8 col-lg-8 ">
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name">
+          </div>
+          <div class="col-md-2 col-sm-2 col-lg-2">
+            <button class="btn btn-success" (click)="findByName()">Recherche</button>
+          </div>
+        </div>
+        <div class="row mt-3" *ngIf="rechercheingredient">
+          <div class="col-md-2 col-sm-2 col-lg-2 ">
+            <label class="text-white font-weight-bold">Nom des Ingredients( separes par des ; ) : </label>
+          </div>
+          <div class="col-md-8 col-sm-8 col-lg-8 ">
+            <input type="text" class="form-control" id="ingredients" name="ingredients" [(ngModel)]="ingredients">
+          </div>
+          <div class="col-md-2 col-sm-2 col-lg-2">
+            <button class="btn btn-success" (click)="findByQuantites()">Recherche</button>
+          </div>
+        </div>
+        <div class="row mt-3" *ngIf="rechercheCuisinier">
+          <div class="col-md-2 col-sm-2 col-lg-2 ">
+            <label class="text-white font-weight-bold">Nom du cuisinier: </label>
+          </div>
+          <div class="col-md-8 col-sm-8 col-lg-8 ">
+            <input type="text" class="form-control" id="user" name="user" [(ngModel)]="user">
+          </div>
+          <div class="col-md-2 col-sm-2 col-lg-2">
+            <button class="btn btn-success" (click)="findByUser()">Recherche</button>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div *ngFor="let recipe of recipes" class="col-md-4 col-sm-4 col-lg-4" title="{{recipe.name}}">
+        <a [routerLink]="['/recipe',recipe.id]" class="decoration-none text-dark cursor-pointer">
+          <div class="card my-3 custom-background">
+            <img src="./assets/uploads/{{recipe.img}}" class="img mt-3">
+            <label class="text-center font-weight-bold cursor-pointer text-white mt-3">{{recipe.name}}</label>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

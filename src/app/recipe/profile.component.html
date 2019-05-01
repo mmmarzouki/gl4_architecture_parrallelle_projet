@@ -1,0 +1,58 @@
+<div class="wrapper">
+    <div class="page-header page-header-xs crop-bottom" data-parallax="true">
+        <img src="./assets/uploads/{{recipe.img}}" class="img">
+    </div>
+    <div class="section profile-content">
+        <div class="container">
+            <div class="owner">
+                <div class="name">
+                    <h1 class="title">{{recipe.name}} - {{recipe.score}}</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 ml-auto mr-auto text-center">
+                    <h2>Ingredients: </h2>
+                    <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let ingredient of recipe.quantities">
+                            {{ingredient.ingredient.name}}: {{ingredient.value}} {{ingredient.ingredient.unit}}
+                        </li>
+                    </ul>
+                    <br />
+                    <h2>Etapes: </h2>
+                    <ol class="list-group">
+                        <li *ngFor="let step of recipe.steps let i = index" class="list-group-item">
+                            {{i+1}}: {{step.value}}
+                        </li>
+                    </ol>
+                    <h2 *ngIf="!isConnected">Noter</h2>
+                    <div class="container" *ngIf="!isConnected">
+                        <div class="row">
+                            <label class="col-md-2 col-sm-2 col-lg-2">Note: </label>
+                            <input type="number" min="0" max="10" name="note" id="note" [(ngModel)]="note" class="form-control col-md-8 col-sm-8 col-lg-8">
+                            <div class="col-md-2 col-sm-2 col-lg-2">
+                                <button class="btn btn-outline-warning" (click)="noter()">Noter</button>
+                            </div>
+                        </div>
+                    </div>
+                    <h2>Commentaires:</h2>
+                    <div *ngIf="!isConnected">
+                        <textarea class="form-control" name="commentaire" id="commentaire" [(ngModel)]="commentaire" placeholder="Rediger un commmentaire...">
+                        </textarea>
+                        <button class="btn btn-block btn-info" (click)="commenter()">Commenter</button>
+                    </div>
+                    <ul class="list-group mt-3">
+                        <li class="list-group-item" *ngFor="let com of recipe.comments">
+                            <label class="font-weight-bold">{{com.user.name}} {{com.user.lastName}} - {{com.date}} </label>
+                            <p>
+                                {{com.value}}
+                            </p>
+                            <button class="btn btn-round btn-danger" (click)="deleteCom(com)" *ngIf="isOwner">
+                                <i _ngcontent-c3="" class="nc-icon nc-simple-delete"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

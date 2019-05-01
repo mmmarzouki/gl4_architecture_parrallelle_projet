@@ -1,0 +1,36 @@
+<nav class="custom-size bg-dark">
+    <div class="container">
+        <div class="row" *ngIf="isConnected">
+            <div class="nav-item mx-auto col-md-3 col-sm-3 col-lg-3 habet text-white font-weight-bold">
+                <i _ngcontent-c3="" class="nc-icon nc-book-bookmark mr-1"></i>
+                <a [routerLink]="['/home']" class=" text-decoration-none text-white font-weight-bold">Recipes </a>
+            </div>
+            <div class="nav-item mx-auto col-md-3 col-sm-3 col-lg-3 habet text-white font-weight-bold">
+                <i _ngcontent-c3="" class="nc-icon nc-zoom-split mr-1"></i>
+                <a [routerLink]="['/search']" class=" text-decoration-none text-white font-weight-bold">Search </a>
+            </div>
+            <div class="nav-item mx-auto col-md-3 col-sm-3 col-lg-3 habet text-white font-weight-bold">
+                <i _ngcontent-c3="" class="nc-icon nc-circle-10 mr-1"></i>
+                <a [routerLink]="['/login']" class=" text-decoration-none text-white font-weight-bold">Login </a>
+            </div>
+            <div class="nav-item mx-auto col-md-3 col-sm-3 col-lg-3 habet text-white font-weight-bold">
+                <i _ngcontent-c3="" class="nc-icon nc-badge mr-1"></i>
+                <a [routerLink]="['/register']" class=" text-decoration-none text-white font-weight-bold">Register </a>
+            </div>
+        </div>
+        <div class="row" *ngIf="!isConnected">
+            <div class="nav-item mx-auto col-md-4 col-sm-4 col-lg-4 habet text-white font-weight-bold">
+                <i _ngcontent-c3="" class="nc-icon nc-book-bookmark mr-1"></i>
+                <a [routerLink]="['/home']" class=" text-decoration-none text-white font-weight-bold">Recipes </a>
+            </div>
+            <div class="nav-item mx-auto col-md-4 col-sm-4 col-lg-4 habet text-white font-weight-bold">
+                <i _ngcontent-c3="" class="nc-icon nc-zoom-split mr-1"></i>
+                <a [routerLink]="['/search']" class=" text-decoration-none text-white font-weight-bold">Search </a>
+            </div>
+            <div class="nav-item mx-auto col-md-4 col-sm-4 col-lg-4 habet text-white font-weight-bold">
+                <i _ngcontent-c3="" class="nc-icon nc-circle-10 mr-1"></i>
+                <a  href="#" (click)="logout()" class=" text-decoration-none text-white font-weight-bold">Logout </a>
+            </div>
+        </div>
+    </div>
+</nav>

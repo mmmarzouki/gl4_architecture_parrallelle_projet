@@ -1,0 +1,17 @@
+<div class="full-size-screen" style="background-image: url('./assets/img/login-image.jpg');background-position: center">
+    <button [routerLink]="['/create']" class="btn btn-round btn-success" *ngIf="isConnected">
+        <i _ngcontent-c3="" class="nc-icon nc-simple-add"></i>
+    </button>
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let recipe of recipes" class="col-md-4 col-sm-4 col-lg-4" title="{{recipe.name}}">
+                <a [routerLink]="['/recipe',recipe.id]" class="decoration-none text-dark cursor-pointer">
+                    <div class="card my-3 custom-background">
+                        <img src="./assets/uploads/{{recipe.img}}" class="img mt-3">
+                        <label class="text-center font-weight-bold cursor-pointer text-white mt-3">{{recipe.name}}</label>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="wrapper full-size-screen">
+  <div class="page-header" style="background-image: url('./assets/img/login-image.jpg');">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+          <div class="card card-register">
+            <h3 class="title">Welcome</h3>
+            <form class="register-form">
+              <div class="form-group ">
+                <div class="form-group ">
+                  <label>Name</label>
+                  <input type="text" id="name" name="name" [(ngModel)]="user.name" class="form-control " placeholder="Name">
+                </div>
+                <div class="form-group ">
+                  <label>LastName</label>
+                  <input type="text" id="lastName" name="lastName" [(ngModel)]="user.lastName" class="form-control " placeholder="LastName">
+                </div>
+                <label>Email</label>
+                <input type="text" id="email" name="email" [(ngModel)]="user.email" class="form-control " placeholder="Email">
+              </div>
+              <div class="form-group {">
+                <label>Password</label>
+                <input type="password" id="password" name="password" class="form-control " [(ngModel)]="user.password"  placeholder="Password">
+              </div>
+              <button class="btn btn-danger btn-block btn-round" (click)="register()" >Register</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
